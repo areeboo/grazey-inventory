@@ -1,0 +1,28 @@
+{
+  "project_name": "Graze Craze Build Guides BOM",
+  "version": "2025",
+  "categories": [
+    {
+      "category_name": "Classic (Gone Grazey)",
+      "products": [
+        {
+          "product_name": "Charcuterie Cup Classic",
+          "sku_suffix": "CUP-CL",
+          "ingredients": [
+            { "order": 1, "item": "Strawberry", "quantity": 1, "unit": "each", "note": "Skewer #1 Top" },
+            { "order": 1, "item": "Pepperoni", "quantity": 1, "unit": "slice", "note": "Skewer #1 Middle" },
+            { "order": 1, "item": "Olive", "quantity": 1, "unit": "each", "note": "Skewer #1 Bottom" },
+            { "order": 2, "item": "Tomato", "quantity": 1, "unit": "each", "note": "Skewer #2 Top" },
+            { "order": 2, "item": "Sweet Capocollo", "quantity": 1, "unit": "slice", "note": "Skewer #2 Middle" },
+            { "order": 2, "item": "Genoa Salami", "quantity": 1, "unit": "slice", "note": "Skewer #2 Bottom" },
+            { "order": 3, "item": "Vermont Cheddar", "quantity": 0.5, "unit": "oz", "note": "Cubed" },
+            { "order": 4, "item": "Bold 3 Pepper Cheese", "quantity": 0.5, "unit": "oz", "note": "Cubed" },
+            { "order": 5, "item": "Blackberry", "quantity": 1, "unit": "each", "note": "Inside cup" },
+            { "order": 6, "item": "Crackers (Black Pepper or Rosemary)", "quantity": 2, "unit": "each" },
+            { "order": 7, "item": "Blackberry", "quantity": 0.21, "unit": "oz", "note": "Placed on top" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "project_name": "Graze Craze Build Guides BOM",
+  "version": "2025",
+  "categories": [
+    {
+      "category_name": "Classic (Gone Grazey)",
+      "products": [
+        {
+          "product_name": "Charcuterie Cup Classic",
+          "ingredients": [
+            { "item": "Strawberry", "quantity": 1, "unit": "each" },
+            { "item": "Pepperoni", "quantity": 1, "unit": "slices" },
+            { "item": "Olive", "quantity": 1, "unit": "each" },
+            { "item": "Tomato", "quantity": 1, "unit": "each" },
+            { "item": "Sweet Capocollo", "quantity": 1, "unit": "slices" },
+            { "item": "Genoa Salami", "quantity": 1, "unit": "slices" },
+            { "item": "Vermont Cheddar", "quantity": 0.5, "unit": "oz" },
+            { "item": "Bold 3 Pepper Cheese", "quantity": 0.5, "unit": "oz" },
+            { "item": "Blackberry", "quantity": 1.21, "unit": "oz" },
+            { "item": "Crackers", "quantity": 2, "unit": "each" }
+          ]
+        },
+        {
+          "product_name": "Grab & Graze Classic",
+          "ingredients": [
+            { "item": "Hummus", "quantity": 2, "unit": "oz" },
+            { "item": "French Bread", "quantity": 2, "unit": "slices" },
+            { "item": "Carrots", "quantity": 1, "unit": "oz" },
+            { "item": "Grapes", "quantity": 2.5, "unit": "oz" },
+            { "item": "Mini Sweet Pepper", "quantity": 0.5, "unit": "each" },
+            { "item": "Cucumbers", "quantity": 1.5, "unit": "oz" },
+            { "item": "Rosemary Crackers", "quantity": 2, "unit": "each" },
+            { "item": "Vermont Cheddar", "quantity": 1, "unit": "oz" },
+            { "item": "Carmella", "quantity": 1, "unit": "oz" },
+            { "item": "Prosciutto", "quantity": 1, "unit": "oz" },
+            { "item": "Genoa Salami", "quantity": 0.6, "unit": "oz" },
+            { "item": "Blackberries", "quantity": 0.7, "unit": "oz" },
+            { "item": "Strawberry", "quantity": 0.5, "unit": "each" },
+            { "item": "Chocolate Bark", "quantity": 0.5, "unit": "oz" }
+          ]
+        },
+        {
+          "product_name": "Small Board Classic",
+          "ingredients": [
+            { "item": "Hummus", "quantity": 8, "unit": "oz" },
+            { "item": "French Bread", "quantity": 4, "unit": "slices" },
+            { "item": "Sweet Bread", "quantity": 4, "unit": "slices" },
+            { "item": "Seed Bread", "quantity": 4, "unit": "slices" },
+            { "item": "Carrots", "quantity": 6, "unit": "oz" },
+            { "item": "Cucumbers", "quantity": 3, "unit": "oz" },
+            { "item": "Kiwi", "quantity": 1, "unit": "each" },
+            { "item": "Brie", "quantity": 4, "unit": "wedges" },
+            { "item": "Rosemary Crackers", "quantity": 3, "unit": "each" },
+            { "item": "Black Pepper Crackers", "quantity": 3, "unit": "each" },
+            { "item": "Wheat Crackers", "quantity": 6, "unit": "each" },
+            { "item": "Sopressata", "quantity": 1, "unit": "oz" },
+            { "item": "Pepper Salami", "quantity": 2, "unit": "oz" },
+            { "item": "Sweet Capicola", "quantity": 1, "unit": "oz" },
+            { "item": "Pepperoni", "quantity": 1.4, "unit": "oz" },
+            { "item": "Fennel Ham", "quantity": 4, "unit": "oz" },
+            { "item": "Prosciutto", "quantity": 2, "unit": "oz" },
+            { "item": "Mini Sweet Peppers", "quantity": 2, "unit": "each" },
+            { "item": "Grapes", "quantity": 2, "unit": "oz" },
+            { "item": "Goat Cheese", "quantity": 2, "unit": "oz" },
+            { "item": "Strawberries", "quantity": 3.8, "unit": "oz" },
+            { "item": "Carmella", "quantity": 1, "unit": "oz" },
+            { "item": "Vermont Cheddar", "quantity": 1, "unit": "oz" },
+            { "item": "Tomatoes", "quantity": 2, "unit": "oz" },
+            { "item": "Blackberries", "quantity": 1, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 2, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 1, "unit": "oz" },
+            { "item": "Dried Cranberries", "quantity": 1, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 1, "unit": "oz" }
+          ]
+        },
+        {
+          "product_name": "Medium Board Classic",
+          "ingredients": [
+            { "item": "Hummus", "quantity": 8, "unit": "oz" },
+            { "item": "French Bread", "quantity": 6, "unit": "slices" },
+            { "item": "Sweet Bread", "quantity": 6, "unit": "slices" },
+            { "item": "Seed Bread", "quantity": 6, "unit": "slices" },
+            { "item": "Carrots", "quantity": 5, "unit": "oz" },
+            { "item": "Cucumbers", "quantity": 3.5, "unit": "oz" },
+            { "item": "Kiwi", "quantity": 1, "unit": "each" },
+            { "item": "Brie", "quantity": 6, "unit": "wedges" },
+            { "item": "Rosemary Crackers", "quantity": 5, "unit": "each" },
+            { "item": "Black Pepper Crackers", "quantity": 5, "unit": "each" },
+            { "item": "Wheat Crackers", "quantity": 8, "unit": "each" },
+            { "item": "Sopressata", "quantity": 1.4, "unit": "oz" },
+            { "item": "Pepper Salami", "quantity": 3, "unit": "oz" },
+            { "item": "Sweet Capicola", "quantity": 1.4, "unit": "oz" },
+            { "item": "Pepperoni", "quantity": 2, "unit": "oz" },
+            { "item": "Fennel Ham", "quantity": 6, "unit": "oz" },
+            { "item": "Prosciutto", "quantity": 3.2, "unit": "oz" },
+            { "item": "Mini Sweet Peppers", "quantity": 2, "unit": "each" },
+            { "item": "Grapes", "quantity": 4.5, "unit": "oz" },
+            { "item": "Goat Cheese", "quantity": 3, "unit": "oz" },
+            { "item": "Strawberries", "quantity": 4, "unit": "oz" },
+            { "item": "Carmella", "quantity": 2.5, "unit": "oz" },
+            { "item": "Vermont Cheddar", "quantity": 2.5, "unit": "oz" },
+            { "item": "Tomatoes", "quantity": 3.2, "unit": "oz" },
+            { "item": "Blackberries", "quantity": 2.6, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 2.8, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 2.5, "unit": "oz" },
+            { "item": "Dried Cranberries", "quantity": 2, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 2, "unit": "oz" }
+          ]
+        },
+        {
+          "product_name": "Large Board Classic",
+          "ingredients": [
+            { "item": "Hummus", "quantity": 8, "unit": "oz" },
+            { "item": "French Bread", "quantity": 8, "unit": "slices" },
+            { "item": "Sweet Bread", "quantity": 8, "unit": "slices" },
+            { "item": "Seed Bread", "quantity": 8, "unit": "slices" },
+            { "item": "Carrots", "quantity": 6, "unit": "oz" },
+            { "item": "Cucumbers", "quantity": 4, "unit": "oz" },
+            { "item": "Kiwi", "quantity": 1, "unit": "each" },
+            { "item": "Brie", "quantity": 8, "unit": "wedges" },
+            { "item": "Rosemary Crackers", "quantity": 5, "unit": "each" },
+            { "item": "Black Pepper Crackers", "quantity": 5, "unit": "each" },
+            { "item": "Wheat Crackers", "quantity": 10, "unit": "each" },
+            { "item": "Sopressata", "quantity": 2, "unit": "oz" },
+            { "item": "Pepper Salami", "quantity": 4, "unit": "oz" },
+            { "item": "Sweet Capicola", "quantity": 2, "unit": "oz" },
+            { "item": "Pepperoni", "quantity": 2.4, "unit": "oz" },
+            { "item": "Fennel Ham", "quantity": 8, "unit": "oz" },
+            { "item": "Prosciutto", "quantity": 4, "unit": "oz" },
+            { "item": "Mini Sweet Peppers", "quantity": 3, "unit": "each" },
+            { "item": "Grapes", "quantity": 4, "unit": "oz" },
+            { "item": "Goat Cheese", "quantity": 3, "unit": "oz" },
+            { "item": "Strawberries", "quantity": 4, "unit": "oz" },
+            { "item": "Carmella", "quantity": 3, "unit": "oz" },
+            { "item": "Vermont Cheddar", "quantity": 3, "unit": "oz" },
+            { "item": "Tomatoes", "quantity": 4, "unit": "oz" },
+            { "item": "Blackberries", "quantity": 2.5, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 3, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 3, "unit": "oz" },
+            { "item": "Dried Cranberries", "quantity": 2, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 2, "unit": "oz" }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Vegetarian (Vegegrazian)",
+      "products": [
+        {
+          "product_name": "Charcuterie Cup Vegetarian",
+          "ingredients": [
+            { "item": "Strawberry", "quantity": 2, "unit": "each" },
+            { "item": "Tomato", "quantity": 1, "unit": "each" },
+            { "item": "Blueberry", "quantity": 2, "unit": "each" },
+            { "item": "Blackberry", "quantity": 1.21, "unit": "oz" },
+            { "item": "Carrots", "quantity": 3, "unit": "each" },
+            { "item": "Bold 3 Pepper Cheese", "quantity": 0.4, "unit": "oz" },
+            { "item": "Carmella", "quantity": 0.4, "unit": "oz" },
+            { "item": "Crackers", "quantity": 2, "unit": "each" }
+          ]
+        },
+        {
+          "product_name": "Small Board Vegetarian",
+          "ingredients": [
+            { "item": "Hummus", "quantity": 8, "unit": "oz" },
+            { "item": "Seed Bread", "quantity": 4, "unit": "slices" },
+            { "item": "French Bread", "quantity": 4, "unit": "slices" },
+            { "item": "Brie", "quantity": 4, "unit": "wedges" },
+            { "item": "Carrots", "quantity": 3.5, "unit": "oz" },
+            { "item": "Vermont Cheddar", "quantity": 3, "unit": "oz" },
+            { "item": "Carmella", "quantity": 2, "unit": "oz" },
+            { "item": "Cucumbers", "quantity": 3, "unit": "oz" },
+            { "item": "Asparagus", "quantity": 1, "unit": "oz" },
+            { "item": "Broccoli", "quantity": 5, "unit": "oz" },
+            { "item": "Cauliflower", "quantity": 6, "unit": "oz" },
+            { "item": "Goat Cheese", "quantity": 2, "unit": "oz" },
+            { "item": "Wheat Crackers", "quantity": 6, "unit": "each" },
+            { "item": "Mini Sweet Peppers", "quantity": 2.5, "unit": "each" },
+            { "item": "Rosemary Crackers", "quantity": 0.78, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 2, "unit": "oz" },
+            { "item": "Tomatoes", "quantity": 4, "unit": "oz" },
+            { "item": "Kiwi", "quantity": 1, "unit": "each" },
+            { "item": "Strawberries", "quantity": 2.4, "unit": "oz" },
+            { "item": "Grapes", "quantity": 7, "unit": "oz" },
+            { "item": "Olives", "quantity": 2.5, "unit": "oz" },
+            { "item": "Blackberries", "quantity": 2, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 2, "unit": "oz" },
+            { "item": "Dried Cranberries", "quantity": 1, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 1, "unit": "oz" }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Sweet & Grazey",
+      "products": [
+        {
+          "product_name": "Grab & Graze Sweet",
+          "ingredients": [
+            { "item": "Jam", "quantity": 2, "unit": "oz" },
+            { "item": "Sweet Bread", "quantity": 2, "unit": "slices" },
+            { "item": "Pound Cake", "quantity": 2, "unit": "slices" },
+            { "item": "Brownies", "quantity": 4, "unit": "each" },
+            { "item": "Cookies", "quantity": 3, "unit": "each" },
+            { "item": "Macarons", "quantity": 2, "unit": "each" },
+            { "item": "Strawberries", "quantity": 1, "unit": "each" },
+            { "item": "Blackberries", "quantity": 1.4, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 1, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 1, "unit": "oz" }
+          ]
+        },
+        {
+          "product_name": "Small Board Sweet",
+          "ingredients": [
+            { "item": "Jam", "quantity": 8, "unit": "oz" },
+            { "item": "Brownies", "quantity": 10, "unit": "each" },
+            { "item": "Grapes", "quantity": 10, "unit": "oz" },
+            { "item": "Kiwi", "quantity": 2, "unit": "each" },
+            { "item": "Pound Cake", "quantity": 6, "unit": "slices" },
+            { "item": "Cookies", "quantity": 5, "unit": "each" },
+            { "item": "Macarons", "quantity": 4, "unit": "each" },
+            { "item": "Dessert Bread", "quantity": 10, "unit": "slices" },
+            { "item": "Strawberries", "quantity": 7, "unit": "oz" },
+            { "item": "Chocolate Bark", "quantity": 2, "unit": "oz" },
+            { "item": "Carmella", "quantity": 1.5, "unit": "oz" },
+            { "item": "Orange", "quantity": 0.5, "unit": "each" },
+            { "item": "Blackberries", "quantity": 3, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 3, "unit": "oz" },
+            { "item": "Dried Cranberries", "quantity": 2, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 2, "unit": "oz" }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Grazey for Keto",
+      "products": [
+        {
+          "product_name": "Grab & Graze Keto",
+          "ingredients": [
+            { "item": "Cottage Cheese Dill Dip", "quantity": 2, "unit": "oz" },
+            { "item": "Broccoli", "quantity": 2.5, "unit": "oz" },
+            { "item": "Cauliflower", "quantity": 2, "unit": "oz" },
+            { "item": "Asparagus", "quantity": 4, "unit": "each" },
+            { "item": "Mini Sweet Pepper", "quantity": 0.5, "unit": "each" },
+            { "item": "Tomatoes", "quantity": 1.2, "unit": "oz" },
+            { "item": "Vermont Cheddar", "quantity": 0.5, "unit": "oz" },
+            { "item": "Swiss", "quantity": 0.5, "unit": "oz" },
+            { "item": "Carmella", "quantity": 2, "unit": "oz" },
+            { "item": "Prosciutto", "quantity": 1, "unit": "oz" },
+            { "item": "Genoa Salami", "quantity": 0.6, "unit": "oz" },
+            { "item": "Strawberry", "quantity": 0.5, "unit": "each" },
+            { "item": "Blackberries", "quantity": 1, "unit": "oz" },
+            { "item": "Mixed Nuts", "quantity": 2, "unit": "oz" },
+            { "item": "Blueberries", "quantity": 2.4, "unit": "oz" }
+          ]
+        }
+      ]
+    }
+  ]
+}
