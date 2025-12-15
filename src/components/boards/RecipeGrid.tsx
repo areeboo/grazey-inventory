@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils/cn';
 import { SkeletonCard, EmptyState } from '@/components/ui';
 import { RecipeCard } from './RecipeCard';
 import { useRecipeStore } from '@/stores/recipeStore';
-import { useRecipes } from '@/hooks/useRecipes';
+import { useRecipes, useProductionAnalysis } from '@/hooks/useRecipes';
 import { useModal } from '@/stores/uiStore';
 import type { Recipe, RecipeCategory } from '@/types/recipe';
 
@@ -18,6 +18,7 @@ const categoryOrder: RecipeCategory[] = ['Classic', 'Vegetarian', 'Sweet', 'Keto
 
 export function RecipeGrid({ className }: RecipeGridProps) {
   const { isLoading, error, refetch } = useRecipes();
+  const { data: productionAnalysis } = useProductionAnalysis();
   const recipes = useRecipeStore((state) => state.recipes);
   const filters = useRecipeStore((state) => state.filters);
   const filteredRecipes = useMemo(() => {
@@ -33,6 +34,18 @@ export function RecipeGrid({ className }: RecipeGridProps) {
   }, [recipes, filters]);
   const categoryFilter = filters.category;
   const { open: openDetail } = useModal('recipeDetail');
+  const makeableCounts = useMemo(() => {
+    if (!productionAnalysis) return {} as Record<string, number>;
+
+    const map: Record<string, number> = {};
+    productionAnalysis.canMake.forEach((board) => {
+      map[board.recipeId] = board.maxQuantity;
+    });
+    productionAnalysis.cannotMake.forEach((board) => {
+      map[board.recipeId] = 0;
+    });
+    return map;
+  }, [productionAnalysis]);
 
   if (isLoading) {
     return (
@@ -110,7 +123,11 @@ export function RecipeGrid({ className }: RecipeGridProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
-                    <RecipeCard recipe={recipe} onViewDetails={openDetail} />
+                    <RecipeCard
+                      recipe={recipe}
+                      onViewDetails={openDetail}
+                      makeableCount={makeableCounts[recipe._id]}
+                    />
                   </motion.div>
                 ))}
               </div>
@@ -131,7 +148,11 @@ export function RecipeGrid({ className }: RecipeGridProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.05 }}
         >
-          <RecipeCard recipe={recipe} onViewDetails={openDetail} />
+          <RecipeCard
+            recipe={recipe}
+            onViewDetails={openDetail}
+            makeableCount={makeableCounts[recipe._id]}
+          />
         </motion.div>
       ))}
     </div>

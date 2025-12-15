@@ -12,6 +12,7 @@ interface RecipeCardProps {
   recipe: Recipe;
   onViewDetails: (recipe: Recipe) => void;
   className?: string;
+  makeableCount?: number;
 }
 
 const categoryGradients: Record<RecipeCategory, string> = {
@@ -28,7 +29,9 @@ const categoryBorders: Record<RecipeCategory, string> = {
   Keto: 'border-keto/30 hover:border-keto',
 };
 
-export function RecipeCard({ recipe, onViewDetails, className }: RecipeCardProps) {
+export function RecipeCard({ recipe, onViewDetails, className, makeableCount }: RecipeCardProps) {
+  const displayableCount = typeof makeableCount === 'number' ? makeableCount : '—';
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -94,6 +97,10 @@ export function RecipeCard({ recipe, onViewDetails, className }: RecipeCardProps
           >
             View Details
           </Button>
+          <p className="mt-2 text-center text-xs text-base-content/60">
+            How many boards can be made:&nbsp;
+            <span className="font-semibold text-base-content">{displayableCount}</span>
+          </p>
         </div>
       </Card>
     </motion.div>

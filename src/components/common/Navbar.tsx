@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, Hand } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
@@ -32,7 +33,11 @@ export function Navbar({ className }: NavbarProps) {
         </Button>
 
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <Link
+          href="/"
+          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+          aria-label="Go to dashboard"
+        >
           <Image
             src="/logo.png.jpeg"
             alt="Graze Craze Logo"
@@ -40,11 +45,11 @@ export function Navbar({ className }: NavbarProps) {
             height={44}
             className="rounded-full"
           />
-          <div className="hidden sm:block">
+          <div className="hidden sm:block text-left">
             <h1 className="text-xl font-bold font-display text-primary">Graze Craze</h1>
             <p className="text-xs text-base-content/60 -mt-1">Inventory Tracker</p>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Right side - Welcome message */}
