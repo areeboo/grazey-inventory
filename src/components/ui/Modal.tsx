@@ -81,14 +81,14 @@ export function Modal({
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className={cn(
-              'relative w-full bg-base-100 rounded-2xl shadow-2xl overflow-hidden',
+              'relative w-full bg-base-100 rounded-2xl shadow-2xl flex flex-col max-h-[90vh]',
               sizeClasses[size],
               className
             )}
           >
             {/* Header */}
             {(title || showCloseButton) && (
-              <div className="flex items-start justify-between p-6 pb-0">
+              <div className="flex items-start justify-between p-6 pb-0 flex-shrink-0">
                 <div className="flex-1 pr-4">
                   {title && (
                     <h2 className="text-xl font-semibold font-display text-base-content">
@@ -114,7 +114,7 @@ export function Modal({
             )}
 
             {/* Content */}
-            <div className="p-6">{children}</div>
+            <div className="p-6 overflow-y-auto flex-1">{children}</div>
           </motion.div>
         </div>
       )}

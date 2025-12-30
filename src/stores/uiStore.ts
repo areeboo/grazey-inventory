@@ -24,11 +24,13 @@ const initialModals: Record<ModalName, { isOpen: boolean; data?: unknown }> = {
   addIngredient: { isOpen: false },
   editIngredient: { isOpen: false },
   deleteIngredient: { isOpen: false },
+  boardAssociation: { isOpen: false },
   createOrder: { isOpen: false },
   orderDetail: { isOpen: false },
   cancelOrder: { isOpen: false },
   completeOrder: { isOpen: false },
   recipeDetail: { isOpen: false },
+  addBoard: { isOpen: false },
 };
 
 export const useUIStore = create<UIState>((set) => ({

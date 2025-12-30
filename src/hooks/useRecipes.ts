@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { queryKeys } from '@/lib/queryClient';
 import { useToast } from '@/stores/uiStore';
 import { useRecipeStore } from '@/stores/recipeStore';
-import type { Recipe, ProductionAnalysis, RecipeCategory } from '@/types/recipe';
+import type { Recipe, ProductionAnalysis, RecipeCategory, CreateRecipeInput, UpdateRecipeInput } from '@/types/recipe';
 
 // API functions
 async function fetchRecipes(filters?: { category?: string; isActive?: boolean }): Promise<Recipe[]> {
@@ -113,4 +113,105 @@ export function useRecipesByCategory() {
 export function useMakeableBoardsCount() {
   const { data: analysis } = useProductionAnalysis();
   return analysis?.canMakeCount ?? 0;
+}
+
+// API function to update a recipe
+async function updateRecipe(id: string, input: UpdateRecipeInput): Promise<Recipe> {
+  const response = await fetch(`/api/recipes/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Failed to update recipe');
+  }
+
+  const data = await response.json();
+  return data.data || data;
+}
+
+// Mutation hook to update a recipe
+export function useUpdateRecipe() {
+  const queryClient = useQueryClient();
+  const toast = useToast();
+
+  return useMutation({
+    mutationFn: ({ id, input }: { id: string; input: UpdateRecipeInput }) =>
+      updateRecipe(id, input),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['recipes'] });
+      queryClient.invalidateQueries({ queryKey: queryKeys.recipes.analysis });
+      toast.success('Recipe updated successfully');
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Failed to update recipe');
+    },
+  });
+}
+
+// API function to create a recipe
+async function createRecipe(input: CreateRecipeInput): Promise<Recipe> {
+  const response = await fetch('/api/recipes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Failed to create recipe');
+  }
+
+  const data = await response.json();
+  return data.data || data;
+}
+
+// Mutation hook to create a recipe
+export function useCreateRecipe() {
+  const queryClient = useQueryClient();
+  const toast = useToast();
+
+  return useMutation({
+    mutationFn: createRecipe,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['recipes'] });
+      queryClient.invalidateQueries({ queryKey: queryKeys.recipes.analysis });
+      toast.success(`${data.name} board created successfully`);
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Failed to create recipe');
+    },
+  });
+}
+
+// API function to delete a recipe
+async function deleteRecipe(id: string): Promise<void> {
+  const response = await fetch(`/api/recipes/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Failed to delete recipe');
+  }
+}
+
+// Mutation hook to delete a recipe
+export function useDeleteRecipe() {
+  const queryClient = useQueryClient();
+  const toast = useToast();
+
+  return useMutation({
+    mutationFn: deleteRecipe,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['recipes'] });
+      queryClient.invalidateQueries({ queryKey: queryKeys.recipes.analysis });
+      toast.success('Board deleted successfully');
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Failed to delete recipe');
+    },
+  });
 }

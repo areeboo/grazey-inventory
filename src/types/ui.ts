@@ -17,8 +17,10 @@ export type ModalName =
   | 'addIngredient'
   | 'editIngredient'
   | 'deleteIngredient'
+  | 'boardAssociation'
   | 'createOrder'
   | 'orderDetail'
   | 'cancelOrder'
   | 'completeOrder'
-  | 'recipeDetail';
+  | 'recipeDetail'
+  | 'addBoard';
