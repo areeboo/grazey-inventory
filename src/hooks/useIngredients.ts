@@ -176,6 +176,7 @@ export function useUpdateIngredient() {
     onSuccess: (data) => {
       updateStoreIngredient(data._id, data);
       queryClient.invalidateQueries({ queryKey: queryKeys.ingredients.all });
+      queryClient.invalidateQueries({ queryKey: queryKeys.recipes.analysis });
       toast.success(`${data.name} updated`);
     },
     onError: (error: Error) => {
@@ -197,6 +198,7 @@ export function useDeleteIngredient() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.ingredients.all });
+      queryClient.invalidateQueries({ queryKey: queryKeys.recipes.analysis });
       toast.success('Ingredient deleted');
     },
     onError: (error: Error) => {
