@@ -3,6 +3,7 @@ import connectDB from '@/lib/db/mongodb';
 import Order from '@/lib/db/models/Order';
 import Ingredient from '@/lib/db/models/Ingredient';
 import { logOrderCancelled } from '@/lib/utils/activityLogger';
+import { Types } from 'mongoose';
 
 // POST /api/orders/:id/cancel - Cancel order and restore ingredients
 export async function POST(
@@ -13,6 +14,11 @@ export async function POST(
     await connectDB();
 
     const { id } = await params;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid order ID' }, { status: 400 });
+    }
+
     const order = await Order.findById(id);
 
     if (!order) {

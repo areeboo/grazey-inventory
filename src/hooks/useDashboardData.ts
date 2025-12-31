@@ -28,6 +28,20 @@ async function fetchDashboardData(): Promise<DashboardData> {
     fetch('/api/recipes/analysis'),
   ]);
 
+  // Check for failed responses
+  if (!ingredientsRes.ok) {
+    throw new Error(`Failed to fetch ingredients: ${ingredientsRes.status} ${ingredientsRes.statusText}`);
+  }
+  if (!ordersRes.ok) {
+    throw new Error(`Failed to fetch orders: ${ordersRes.status} ${ordersRes.statusText}`);
+  }
+  if (!activitiesRes.ok) {
+    throw new Error(`Failed to fetch activities: ${activitiesRes.status} ${activitiesRes.statusText}`);
+  }
+  if (!productionRes.ok) {
+    throw new Error(`Failed to fetch production analysis: ${productionRes.status} ${productionRes.statusText}`);
+  }
+
   const [ingredientsData, ordersData, activitiesData, productionData] = await Promise.all([
     ingredientsRes.json(),
     ordersRes.json(),

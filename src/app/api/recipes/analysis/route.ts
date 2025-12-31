@@ -17,9 +17,12 @@ export async function GET(request: NextRequest) {
     });
 
     // Fetch all ingredients
+    // Note: currentQuantity already reflects debited amounts from in-progress orders
+    // (see order creation at /api/orders/route.ts where ingredients are debited)
     const ingredients = await Ingredient.find({});
 
     // Calculate production analysis
+    // This uses currentQuantity which already accounts for in-progress orders
     const analysis = calculateProductionAnalysis(recipes, ingredients);
     const serializedAnalysis = serializeProductionAnalysis(analysis);
 

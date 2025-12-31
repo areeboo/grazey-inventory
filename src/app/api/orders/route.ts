@@ -5,6 +5,8 @@ import Recipe from '@/lib/db/models/Recipe';
 import Ingredient from '@/lib/db/models/Ingredient';
 import { generateOrderNumber } from '@/lib/utils/orderUtils';
 import { logOrderCreated } from '@/lib/utils/activityLogger';
+import { createOrderSchema } from '@/lib/utils/validations';
+import { ZodError } from 'zod';
 
 // GET /api/orders - Get all orders
 export async function GET(request: NextRequest) {
@@ -54,15 +56,10 @@ export async function POST(request: NextRequest) {
     await connectDB();
 
     const body = await request.json();
-    const { recipeId, quantity, notes } = body;
 
-    // Validate input
-    if (!recipeId || !quantity || quantity < 1) {
-      return NextResponse.json(
-        { error: 'Recipe ID and quantity (>= 1) are required' },
-        { status: 400 }
-      );
-    }
+    // Validate request body with Zod schema
+    const validatedData = createOrderSchema.parse(body);
+    const { recipeId, quantity, notes } = validatedData;
 
     // Fetch the recipe
     const recipe = await Recipe.findById(recipeId);
@@ -159,6 +156,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ data: order }, { status: 201 });
   } catch (error: any) {
     console.error('Error creating order:', error);
+
+    // Handle validation errors
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        {
+          error: 'Validation failed',
+          details: error.errors.map(e => ({
+            field: e.path.join('.'),
+            message: e.message
+          }))
+        },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Failed to create order', message: error.message },
       { status: 500 }

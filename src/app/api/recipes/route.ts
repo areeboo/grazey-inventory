@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db/mongodb';
 import Recipe from '@/lib/db/models/Recipe';
+import { createRecipeSchema } from '@/lib/utils/validations';
+import { ZodError } from 'zod';
 
 // GET /api/recipes - Get all recipes
 export async function GET(request: NextRequest) {
@@ -33,10 +35,27 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
-    const recipe = await Recipe.create(body);
+    // Validate request body with Zod schema
+    const validatedData = createRecipeSchema.parse(body);
+
+    const recipe = await Recipe.create(validatedData);
 
     return NextResponse.json(recipe, { status: 201 });
   } catch (error: any) {
+    // Handle validation errors
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        {
+          error: 'Validation failed',
+          details: error.errors.map(e => ({
+            field: e.path.join('.'),
+            message: e.message
+          }))
+        },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Failed to create recipe', message: error.message },
       { status: 500 }

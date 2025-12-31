@@ -30,6 +30,7 @@ export interface MissingIngredient {
 
 /**
  * Calculate what boards can and cannot be made with current inventory
+ * Note: currentQuantity already reflects debited amounts from in-progress orders
  */
 export function calculateProductionAnalysis(
   recipes: IRecipe[],
@@ -118,7 +119,6 @@ function analyzeRecipe(
 
 /**
  * Calculate available inventory after debiting in-progress orders
- * (This will be used in Phase 2 when we add orders)
  */
 export function calculateAvailableInventory(
   ingredients: IIngredient[],
@@ -131,8 +131,12 @@ export function calculateAvailableInventory(
     availableMap.set(ing._id.toString(), ing.currentQuantity);
   });
 
-  // Subtract debited amounts from active orders
-  // TODO: Implement when orders are added in Phase 2
+  // Subtract debited amounts from in-progress orders
+  // Note: When orders are created, ingredients are already debited from currentQuantity
+  // However, we still track debitedIngredients for audit purposes and to enable order cancellation
+  // Since currentQuantity already reflects the debit, we don't need to subtract again here
+  // This function exists to support future scenarios where we might need to calculate
+  // available inventory differently (e.g., for reserved but not yet debited orders)
 
   return availableMap;
 }

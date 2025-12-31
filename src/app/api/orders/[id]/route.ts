@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db/mongodb';
 import Order from '@/lib/db/models/Order';
+import { updateOrderSchema } from '@/lib/utils/validations';
+import { Types } from 'mongoose';
+import { ZodError } from 'zod';
 
 // GET /api/orders/:id - Get single order
 export async function GET(
@@ -11,6 +14,11 @@ export async function GET(
     await connectDB();
 
     const { id } = await params;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid order ID' }, { status: 400 });
+    }
+
     const order = await Order.findById(id).lean();
 
     if (!order) {
@@ -39,12 +47,19 @@ export async function PATCH(
     await connectDB();
 
     const { id } = await params;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid order ID' }, { status: 400 });
+    }
+
     const body = await request.json();
-    const { notes } = body;
+
+    // Validate request body with Zod schema
+    const validatedData = updateOrderSchema.parse(body);
 
     const order = await Order.findByIdAndUpdate(
       id,
-      { notes, updatedAt: new Date() },
+      { ...validatedData, updatedAt: new Date() },
       { new: true }
     ).lean();
 
@@ -58,6 +73,21 @@ export async function PATCH(
     return NextResponse.json({ data: order }, { status: 200 });
   } catch (error: any) {
     console.error('Error updating order:', error);
+
+    // Handle validation errors
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        {
+          error: 'Validation failed',
+          details: error.errors.map(e => ({
+            field: e.path.join('.'),
+            message: e.message
+          }))
+        },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Failed to update order', message: error.message },
       { status: 500 }
@@ -74,6 +104,11 @@ export async function DELETE(
     await connectDB();
 
     const { id } = await params;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid order ID' }, { status: 400 });
+    }
+
     const order = await Order.findById(id);
 
     if (!order) {
