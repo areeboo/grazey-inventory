@@ -7,6 +7,7 @@ export interface IIngredient extends Document {
   currentQuantity: number;
   unit: string;
   lowStockThreshold: number;
+  aliases: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -20,6 +21,7 @@ export interface Ingredient {
   currentQuantity: number;
   unit: string;
   lowStockThreshold: number;
+  aliases: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -31,6 +33,7 @@ export type CreateIngredientInput = {
   currentQuantity?: number;
   unit: string;
   lowStockThreshold?: number;
+  aliases?: string[];
 };
 
 export type UpdateIngredientInput = Partial<CreateIngredientInput>;

@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils/cn';
 import { Badge } from '@/components/ui/Badge';
 
-type RecipeCategory = 'Classic' | 'Vegetarian' | 'Sweet' | 'Keto';
+type RecipeCategory = 'Classic' | 'Vegetarian' | 'Sweet' | 'Keto' | 'Specialty';
 type IngredientCategory =
   | 'Cheese'
   | 'Meat'
@@ -29,6 +29,7 @@ const recipeCategoryVariants: Record<RecipeCategory, string> = {
   Vegetarian: 'vegetarian',
   Sweet: 'sweet',
   Keto: 'keto',
+  Specialty: 'primary',
 };
 
 // Ingredient category colors
@@ -52,7 +53,7 @@ export function CategoryBadge({ category, size = 'sm', className }: CategoryBadg
     const variant = recipeCategoryVariants[category as RecipeCategory];
     return (
       <Badge
-        variant={variant as 'classic' | 'vegetarian' | 'sweet' | 'keto'}
+        variant={variant as 'classic' | 'vegetarian' | 'sweet' | 'keto' | 'primary'}
         size={size}
         className={className}
       >
@@ -88,6 +89,7 @@ export function getCategoryEmoji(category: RecipeCategory): string {
     Vegetarian: '🥬',
     Sweet: '🍯',
     Keto: '🥑',
+    Specialty: '⭐',
   };
   return emojis[category] || '🍽️';
 }

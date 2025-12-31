@@ -20,6 +20,7 @@ const categoryGradients: Record<RecipeCategory, string> = {
   Vegetarian: 'from-vegetarian/20 to-vegetarian/5',
   Sweet: 'from-sweet/20 to-sweet/5',
   Keto: 'from-keto/20 to-keto/5',
+  Specialty: 'from-primary/20 to-primary/5',
 };
 
 const categoryBorders: Record<RecipeCategory, string> = {
@@ -27,6 +28,7 @@ const categoryBorders: Record<RecipeCategory, string> = {
   Vegetarian: 'border-vegetarian/30 hover:border-vegetarian',
   Sweet: 'border-sweet/30 hover:border-sweet',
   Keto: 'border-keto/30 hover:border-keto',
+  Specialty: 'border-primary/30 hover:border-primary',
 };
 
 export function RecipeCard({ recipe, onViewDetails, className, makeableCount }: RecipeCardProps) {

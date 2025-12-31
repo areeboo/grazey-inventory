@@ -14,7 +14,7 @@ interface RecipeGridProps {
   className?: string;
 }
 
-const categoryOrder: RecipeCategory[] = ['Classic', 'Vegetarian', 'Sweet', 'Keto'];
+const categoryOrder: RecipeCategory[] = ['Classic', 'Vegetarian', 'Sweet', 'Keto', 'Specialty'];
 
 export function RecipeGrid({ className }: RecipeGridProps) {
   const { isLoading, error, refetch } = useRecipes();
@@ -165,6 +165,7 @@ function getCategoryEmoji(category: RecipeCategory): string {
     Vegetarian: '🥬',
     Sweet: '🍯',
     Keto: '🥑',
+    Specialty: '⭐',
   };
   return emojis[category] || '🍽️';
 }
@@ -175,6 +176,7 @@ function getCategoryLabel(category: RecipeCategory): string {
     Vegetarian: 'Vegegrazian',
     Sweet: 'Sweet & Grazey',
     Keto: 'Grazey for Keto',
+    Specialty: 'Specialty Boards',
   };
   return labels[category] || category;
 }

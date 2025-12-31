@@ -35,11 +35,18 @@ const IngredientSchema = new Schema<IIngredient>(
       default: 4,
       min: [0, 'Threshold cannot be negative'],
     },
+    aliases: {
+      type: [String],
+      default: [],
+    },
   },
   {
     timestamps: true,
   }
 );
+
+// Index for alias search
+IngredientSchema.index({ aliases: 1 });
 
 // Index for faster queries (name index is created automatically via unique: true)
 IngredientSchema.index({ category: 1 });

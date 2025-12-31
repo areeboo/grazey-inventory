@@ -27,7 +27,7 @@ export const ingredientUnits = [
   'g',
 ] as const;
 
-export const recipeCategories = ['Classic', 'Vegetarian', 'Sweet', 'Keto'] as const;
+export const recipeCategories = ['Classic', 'Vegetarian', 'Sweet', 'Keto', 'Specialty'] as const;
 
 // Ingredient Schemas
 export const createIngredientSchema = z.object({

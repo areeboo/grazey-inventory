@@ -24,6 +24,25 @@ const RecipeIngredientSchema = new Schema<IRecipeIngredient>(
     notes: {
       type: String,
     },
+    context: {
+      type: String,
+      enum: [
+        'on_the_side',
+        'primary_spread',
+        'opposite_flavor',
+        'condiment',
+        'dessert_dip',
+        'base_item',
+        'fresh_fruit',
+        'protein_feature',
+        'vegetable_feature',
+        'standalone_cup',
+        'composite_item',
+        'decorative_filler',
+        'prep_only',
+        'breakfast_condiment',
+      ],
+    },
   },
   { _id: false }
 );
@@ -39,7 +58,7 @@ const RecipeSchema = new Schema<IRecipe>(
     category: {
       type: String,
       required: [true, 'Please provide a category'],
-      enum: ['Classic', 'Vegetarian', 'Sweet', 'Keto'],
+      enum: ['Classic', 'Vegetarian', 'Sweet', 'Keto', 'Specialty'],
     },
     displayOrder: {
       type: Number,
